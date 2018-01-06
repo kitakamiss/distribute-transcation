@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+           http://www.springframework.org/schema/beans/spring-beans-3.2.xsd  
+           http://www.springframework.org/schema/aop   
+           http://www.springframework.org/schema/aop/spring-aop-3.2.xsd  
+           http://www.springframework.org/schema/tx  
+           http://www.springframework.org/schema/tx/spring-tx-3.2.xsd  
+           http://www.springframework.org/schema/context  
+           http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	<!-- 配置事务管理器 -->
+	<!-- <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"> 
+		<property name="entityManagerFactory" ref="entityManagerFactory" /> <property 
+		name="dataSource" ref="dataSource" /> </bean> -->
+
+	<!-- 配置一个事务管理器 -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- 启用支持Annotation注解方式的事务管理 -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<!-- 基于Druid数据库链接池的数据源配置 -->
+	<!-- 数据源配置 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="filters" value="config" />
+		<property name="connectionProperties" value="config.decrypt=true" />
+		<!-- 驱动名称 -->
+		<property name="DriverClassName" value="${driverClassName}" />
+		<!-- JDBC连接串 -->
+		<property name="url" value="${notify.url}" />
+		<!-- 数据库用户名称 -->
+		<property name="username" value="${notify.username}" />
+		<!-- 数据库密码 -->
+		<property name="password" value="${notify.password}" />
+		<!-- 连接池最大使用连接数量 -->
+		<property name="maxActive" value="${myt.maxActive}" />
+		<!-- 初始化大小 -->
+		<property name="initialSize" value="${myt.initialSize}" />
+		<!-- 获取连接最大等待时间 -->
+		<property name="maxWait" value="60000" />
+		<!-- 连接池最小空闲 -->
+		<property name="minIdle" value="${myt.minIdle}" />
+		<!-- 逐出连接的检测时间间隔 -->
+		<property name="timeBetweenEvictionRunsMillis" value="3000" />
+		<!-- 最小逐出时间 -->
+		<property name="minEvictableIdleTimeMillis" value="300000" />
+		<!-- 测试有效用的SQL Query -->
+		<property name="validationQuery" value="SELECT 'x'" />
+		<!-- 连接空闲时测试是否有效 -->
+		<property name="testWhileIdle" value="true" />
+		<!-- 获取连接时测试是否有效 -->
+		<property name="testOnBorrow" value="false" />
+		<!-- 归还连接时是否测试有效 -->
+		<property name="testOnReturn" value="false" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource" />
+		<property name="maxRows" value="10000" />
+	</bean>
+	
+	<!-- 配置SessionFactory -->  
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+        <property name="hibernateProperties">  
+            <props>  
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  
+                <prop key="hibernate.hbm2ddl.auto">update</prop>  
+                <prop key="hibernate.show_sql">false</prop>  
+                <prop key="hibernate.format_sql">true</prop>  
+                <!-- 开启查询缓存 -->
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<!-- 开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<!-- 高速缓存提供程序 -->
+				<!-- 由于spring也使用了Ehcache, 保证双方都使用同一个缓存管理器 -->
+				<prop key="hibernate.cache.region.factory_class">
+					org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+				</prop>
+            </props>  
+        </property>  
+        <property name="packagesToScan">
+			<list>
+				<value>com.hjrh.facade.notify.entity</value>
+			</list>
+		</property>
+    </bean>  
+
+	<!-- 配置事务，使用代理的方式 -->
+	<bean id="transactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		abstract="true">
+		<property name="transactionManager" ref="transactionManager"></property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="modify*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="save*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-Exception</prop>
+				<prop key="del*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

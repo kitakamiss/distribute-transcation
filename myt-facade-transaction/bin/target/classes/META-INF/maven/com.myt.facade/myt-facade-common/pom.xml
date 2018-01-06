@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.hjrh.common</groupId>
+		<artifactId>hjrh-common-parent</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>pom.xml</relativePath>
+	</parent>
+
+	<groupId>com.myt.facade</groupId>
+	<artifactId>myt-facade-common</artifactId>
+	<version>${myt-facade-common.version}</version>
+	<packaging>jar</packaging>
+
+	<name>myt-facade-common</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.hjrh.common</groupId>
+			<artifactId>hjrh-common-core</artifactId>
+			<version>${hjrh-common-core.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.nutz</groupId>
+			<artifactId>nutz</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+		</dependency>
+		<!-- hibernate end -->
+
+		<!-- Spring Dependency Begin -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+		<!-- Spring Dependency end -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+</project>

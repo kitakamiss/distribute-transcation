@@ -1,0 +1,57 @@
+Manifest-Version: 1.0
+Built-By: Administrator
+Class-Path: . lib/hjrh-common-config-local-1.1-SNAPSHOT.jar lib/hjrh-c
+ ommon-core-1.1-SNAPSHOT.jar lib/hjrh-common-1.1-SNAPSHOT.jar lib/xala
+ n-2.7.1.jar lib/serializer-2.7.1.jar lib/fastjson-1.1.41.jar lib/simp
+ leimage-1.2.3.jar lib/jxl-2.6.12.jar lib/httpclient-4.3.3.jar lib/htt
+ pcore-4.3.2.jar lib/commons-httpclient-3.1.jar lib/jedis-2.4.2.jar li
+ b/commons-pool2-2.0.jar lib/jdom-1.1.3.jar lib/jaxen-1.1.1.jar lib/jd
+ om-1.0.jar lib/xercesImpl-2.6.2.jar lib/xom-1.0.jar lib/xmlParserAPIs
+ -2.6.2.jar lib/icu4j-2.6.1.jar lib/jai_core-1.1.3.jar lib/jai.codec-1
+ .1.3.jar lib/jsch-0.1.50.jar lib/commons-net-3.2.jar lib/aliyun-opens
+ ervices-1.2.3.jar lib/gson-2.2.4.jar lib/persistence-2.0.0.jar lib/rt
+ -1.8.jar lib/jackson-databind-2.4.2.jar lib/jackson-annotations-2.4.0
+ .jar lib/jackson-core-2.4.2.jar lib/easydbo-1.0.jar lib/myt-facade-tr
+ ansaction-1.0-SNAPSHOT.jar lib/nutz-1.b.40.jar lib/myt-facade-order-1
+ .1-SNAPSHOT.jar lib/myt-facade-system-1.1-SNAPSHOT.jar lib/protobuf-j
+ ava-2.5.0.jar lib/gexin-rp-sdk-base-4.0.0.7.jar lib/gexin-rp-sdk-http
+ -4.0.1.2.jar lib/gexin-rp-sdk-template-4.0.0.4.jar lib/tcc-transactio
+ n-api-1.0.jar lib/myt-facade-business-1.1-SNAPSHOT.jar lib/antlr-2.7.
+ 6.jar lib/aopalliance-1.0.jar lib/aspectjweaver-1.7.3.jar lib/cglib-2
+ .2.2.jar lib/asm-3.3.1.jar lib/json-lib-2.3-jdk15.jar lib/commons-lan
+ g-2.5.jar lib/oro-2.0.8.jar lib/commons-beanutils-1.8.0.jar lib/commo
+ ns-codec-1.8.jar lib/commons-collections-3.2.jar lib/commons-digester
+ -2.0.jar lib/commons-fileupload-1.3.1.jar lib/commons-io-2.0.1.jar li
+ b/commons-lang3-3.1.jar lib/commons-logging-1.1.3.jar lib/commons-val
+ idator-1.1.4.jar lib/dom4j-1.6.1.jar lib/xml-apis-1.0.b2.jar lib/ezmo
+ rph-1.0.6.jar lib/jstl-1.2.jar lib/jta-1.1.jar lib/log4j-1.2.17.jar l
+ ib/slf4j-api-1.7.5.jar lib/slf4j-log4j12-1.7.5.jar lib/spring-aop-4.2
+ .0.RELEASE.jar lib/spring-aspects-4.2.0.RELEASE.jar lib/spring-beans-
+ 4.2.0.RELEASE.jar lib/spring-context-4.2.0.RELEASE.jar lib/spring-con
+ text-support-4.2.0.RELEASE.jar lib/spring-core-4.2.0.RELEASE.jar lib/
+ spring-expression-4.2.0.RELEASE.jar lib/spring-instrument-4.2.0.RELEA
+ SE.jar lib/spring-instrument-tomcat-4.2.0.RELEASE.jar lib/spring-jdbc
+ -4.2.0.RELEASE.jar lib/spring-jms-4.2.0.RELEASE.jar lib/spring-messag
+ ing-4.2.0.RELEASE.jar lib/spring-orm-4.2.0.RELEASE.jar lib/spring-oxm
+ -4.2.0.RELEASE.jar lib/spring-tx-4.2.0.RELEASE.jar lib/spring-web-4.2
+ .0.RELEASE.jar lib/spring-webmvc-4.2.0.RELEASE.jar lib/spring-webmvc-
+ portlet-4.2.0.RELEASE.jar lib/hibernate-core-4.2.1.Final.jar lib/jbos
+ s-logging-3.1.0.GA.jar lib/jboss-transaction-api_1.1_spec-1.0.1.Final
+ .jar lib/hibernate-jpa-2.0-api-1.0.1.Final.jar lib/javassist-3.20.0-G
+ A.jar lib/hibernate-entitymanager-4.2.1.Final.jar lib/hibernate-commo
+ ns-annotations-4.0.1.Final.jar lib/hibernate-validator-5.0.0.Final.ja
+ r lib/validation-api-1.1.0.Final.jar lib/classmate-0.8.0.jar lib/java
+ x.el-2.2.4.jar lib/javax.el-api-2.2.4.jar lib/hibernate-ehcache-4.2.1
+ .Final.jar lib/ehcache-core-2.4.3.jar lib/druid-0.2.23.jar lib/jsoup-
+ 1.7.3.jar lib/mysql-connector-java-5.1.25.jar lib/netty-3.2.5.Final.j
+ ar lib/dubbo-2.8.4.jar lib/zookeeper-3.4.6.jar lib/jline-0.9.94.jar l
+ ib/netty-3.7.0.Final.jar lib/zkclient-0.3.jar lib/commons-dbcp-200308
+ 25.184428.jar lib/commons-pool-1.6.jar lib/ehcache-2.8.3.jar lib/java
+ x.servlet-api-3.0.1.jar lib/activemq-pool-5.8.0.jar lib/activemq-clie
+ nt-5.8.0.jar lib/geronimo-jms_1.1_spec-1.1.1.jar lib/hawtbuf-1.9.jar 
+ lib/geronimo-j2ee-management_1.1_spec-1.0.1.jar lib/geronimo-jta_1.0.
+ 1B_spec-1.0.1.jar lib/junit-4.11.jar lib/hamcrest-core-1.3.jar
+Build-Jdk: 1.8.0_131
+Created-By: Maven Integration for Eclipse
+Main-Class: com.hjrh.facade.message.MessageTask
+
